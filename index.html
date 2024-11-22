@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비디오 메인</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            color: #000;
+        }
+
+        .work {
+            width: 800px;
+            height: 625px;
+            position: fixed;
+            left: 18%;
+            top: 120px;
+            z-index: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .menu-bar {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 8px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+
+       .menu-bar h1:hover{
+        color: #1a73e8;
+       }
+        
+
+        .menu-bar h1 {
+            font-size: 2em;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .overlay-text h1 {
+            font-size: 4em;
+            margin: 0;
+            padding-bottom: 8px;
+        }
+
+        .overlay-text p {
+            font-size: 1.5em;
+            color: #aca9a9;
+            margin: 0;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            color: #111;
+            flex-direction: column;
+        }
+
+        .logo {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 26px;
+            left: 50px;
+        }
+
+        .study-text{
+            text-align: left;
+            padding-left: 100px; /* 왼쪽 여백 추가 */
+            padding-top:180px;
+        }
+
+        .study-text h1{
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+            
+        }
+
+        .study-text p{
+            font-size: 1.5em;
+            color: #ffff;
+            margin-top: 0;
+        }
+
+        .encryption-options {
+            display: grid;
+            gap:50px;/* 간격을 10px로 줄임 */
+            grid-template-rows: repeat(2,auto); /* 2개의 행 */
+            grid-template-columns:repeat(3,auto); /* 3개의 열 */
+            margin-bottom: 0px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 140px; /* 상단 여백을 조정 */
+            justify-content: left; /* 수평 중앙 정렬 */
+            align-items: left; /* 수직 중앙 정렬 */
+            text-align: center;
+            }
+
+        .encryption-options h1 {
+            
+            transition: color 0.3s ease;
+            padding: 0; /* 옵션 텍스트 주위에 여백 추가 */
+            margin: 0px; /* 각 옵션 간의 추가적인 간격 조정 */
+            cursor: pointer;
+            z-index: 1;
+        }
+        .encryption-options h1:hover {
+             color: #1a73e8;
+        }
+
+        .test-text{
+            text-align: left;
+            padding-left: 80px; /* 왼쪽 여백 추가 */
+            padding-top:200px;
+        }
+
+        .test-text h1{
+        color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 0em;
+            
+        }
+
+        .test-text p{
+            font-size: 1.5em;
+            color: #ffff;
+           
+        }
+
+        .arrow-container{
+            display: flex;
+            align-items: center; /* 세로 정렬 중앙 */
+            gap: 10px; /* 화살표와 텍스트 사이 간격 */
+            margin-top: 3px;
+            margin-left: 30%;
+            cursor: pointer; /* 클릭 가능하도록 포인터 표시 */
+            z-index: 1; /* 겹침 방지 */
+            position: relative; /* z-index가 적용되도록 설정 */
+        }
+
+        .arrow-container .arrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent; /* 위쪽 투명 */
+            border-bottom: 10px solid transparent; /* 아래쪽 투명 */
+            border-left: 15px solid white; /* 왼쪽 삼각형 (화살표 색상) */
+        }
+
+        .arrow-container p {
+            font-size: 1.5em;
+            color: white;
+            margin: 0;
+        }
+
+        .arrow-container p:hover{
+            color: #1a73e8;
+            transform: scale(1.1);
+        }
+        
+
+        .history-text{
+            text-align: left;
+            padding-left: 80px; /* 왼쪽 여백 추가 */
+            padding-top:200px;
+        }
+
+        .history-text h1{
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+        
+        .history-text p{
+            font-size: 1.5em;
+            color: #ffff;
+            margin-top: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 500px;
+            height: 100px;
+            border: 2px solid white;
+            margin-left: 15%;
+            margin-top: 50px;
+        }
+
+        .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #777; /* 기본 배경색 */
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 1px solid #fff; /* 칸 테두리 */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .grid-item:hover {
+            background-color: #1a73e8; /* 호버 시 배경색 변경 */
+            transform: scale(1.1); /* 약간 확대 */
+            color: #fff;
+        }
+
+        
+
+        
+        #studySection { background-color: #333; }
+        #testSection { 
+            background: linear-gradient(135deg, #333, #777); 
+            animation: backgroundMove 10s infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }       
+        #historySection { background-color: #777; }
+        #homeSection { background-color: #229799; }
+
+
+        @keyframes backgroundMove {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="work" id="lockImage">
+        <img src="images/자물쇠.png" alt="자물쇠">
+    </div>
+
+    <!-- 메뉴바 -->
+    <div class="menu-bar" id="menuBar">
+        <h1 onclick="scrollToSection('homeSection')">home</h1>
+        <h1 onclick="scrollToSection('studySection')">Study</h1>
+        <h1 onclick="scrollToSection('testSection')">Test</h1>
+        <h1 onclick="scrollToSection('historySection')">History</h1>
+    </div>
+
+    <!-- 홈 섹션과 중앙에 배치된 로고 및 텍스트 -->
+    <div class="section" id="homeSection">
+        <img src="images/컴포넌트2.png" alt="logo" class="logo">
+        <div class="overlay-text" id="encryptionText">
+            <h1>Encryption Study</h1>
+            <p>INTERNET - SECURITY - MAJOR</p>
+        </div>
+    </div>
+
+    <div id="studySection" class="section">
+        <div class="study-text">
+            <h1>Study</h1>
+            <p>What kind of encryption do you want to study?</p>
+            <div class="encryption-options">
+                <h1  onclick="goToPage('ascil.html')">ASCII</h1>
+                <h1  onclick="goToPage('des.html')">DES</h1>
+                <h1  onclick="goToPage('aes.html')">AES</h1>
+                <h1  onclick="goToPage('rsa.html')">RSA</h1>
+                <h1  onclick="goToPage('caesar.html')">CAESAR</h1>
+                <h1  onclick="goToPage('hash.html')">HASH</h1>
+            </div>
+        </div>
+       
+        
+    </div>
+    <div id="testSection" class="section">
+        <div class="test-text">
+            <h1>Test</h1>
+            <p> Are you ready to test now? when you are ready, press the start button</p>
+            <div class="arrow-container" onclick="goToPage('test.html')">
+                <div class="arrow"></div>
+                <p>start</p>
+            </div>
+        </div>
+       
+    </div>
+    <div id="historySection" class="section">
+        <div class="history-text">
+        <h1>HISTORY</h1>
+        <p>Are you curious about what era the password is from?</p>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item" onclick="goToPage('ancient.html')">고대 시대</div>
+            <div class="grid-item" onclick="goToPage('medieval.html')">중세 시대</div>
+            <div class="grid-item" onclick="goToPage('modern.html')">근대 시대</div>
+            <div class="grid-item" onclick="goToPage('contemporary.html')">현대 시대</div>
+        </div>
+    </div>
+
+    <script>
+        // 특정 섹션으로 스크롤하고 자물쇠 이미지 표시/숨김 설정
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const lockImage = document.getElementById('lockImage');
+
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                
+                // homeSection에서는 자물쇠 이미지 표시, 다른 섹션에서는 숨기기
+                if (sectionId === 'homeSection') {
+                    lockImage.style.opacity = '1'; // 자물쇠 이미지 표시
+                } else {
+                    lockImage.style.opacity = '0'; // 자물쇠 이미지 숨기기
+                }
+            }
+        }
+
+        // 메뉴 토글 함수
+        function toggleMenuBar() {
+            const menuBar = document.getElementById('menuBar');
+            menuBar.style.display = (menuBar.style.display === 'none' || menuBar.style.display === '') ? 'block' : 'none';
+        }
+
+        // 페이지 로드 후 이벤트 연결
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    toggleMenuBar();
+                }
+            });
+
+            document.getElementById('encryptionText').addEventListener('click', function() {
+                toggleMenuBar();
+            });
+        });
+
+         // 특정 페이지로 이동
+        function goToPage(url) {
+        window.location.href = url;
+    }
+
+    </script>
+
+</body>
+</html>
