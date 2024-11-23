@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비디오 메인</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            color: #000;
+        }
+
+        .menu-bar {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .menu-bar h1 {
+            font-size: 2em;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            cursor: pointer;
+        }
+
+        .overlay-text h1 {
+            font-size: 2.6em;
+            margin: 0;
+            padding-bottom: 8px;
+        }
+
+        .overlay-text p {
+            font-size: 1em;
+            color: #aca9a9;
+            margin: 0;
+        }
+
+        
+        
+        
+        video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* 각 섹션 스타일 */
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #111;
+        }
+
+        .logo{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top:26px;
+            left:50px;
+        }
+
+        .study-text{
+            
+        }
+        
+        /* 섹션별 배경색 */
+        #studySection { background-color: #333; }
+        #testSection { background-color: #555; }
+        #historySection { background-color: #777; }
+        
+    
+    </style>
+</head>
+<body>
+
+
+    
+    
+    <!-- 메뉴바 -->
+    <div class="menu-bar" id="menuBar">
+        <h1 onclick="scrollToSection('homeSection')">home</h1>
+        <h1 onclick="scrollToSection('studySection')">Study</h1>
+        <h1 onclick="scrollToSection('testSection')">Test</h1>
+        <h1 onclick="scrollToSection('historySection')">History</h1>
+    </div>
+
+    
+    <!-- 비디오와 오버레이 텍스트 -->
+    <div class="section" id="homeSection">
+        <video autoplay loop muted playsinline>
+            <source src="video/7021909_Cyber_Data_1280x720.mp4" type="video/mp4">
+            브라우저가 비디오 태그를 지원하지 않습니다.
+        </video>
+        <img src="images/컴포넌트2.png" alt ="logo" class="logo">
+        <div class="overlay-text" id="encryptionText">
+            <h1>Encryption</h1>
+            <p>INTERNET - SECURITY - MAJOR</p>
+        </div>
+    </div>
+
+    <div id="studySection" class="section">
+        <div class="study-text">
+            <h2>What kind of encryption do you want to study?</h2>
+        </div>
+        
+    </div>
+    <div id="testSection" class="section">
+        <h2>Test Section</h2>
+    </div>
+    <div id="historySection" class="section">
+        <h2>History Section</h2>
+    </div>
+
+    <script>
+        // 메뉴바 표시/숨김 함수
+        function toggleMenuBar() {
+            const menuBar = document.getElementById('menuBar');
+            if (menuBar.style.display === 'none' || menuBar.style.display === '') {
+                menuBar.style.display = 'block';
+            } else {
+                menuBar.style.display = 'none';
+            }
+        }
+
+        // 페이지 로드 후 이벤트 연결
+        document.addEventListener('DOMContentLoaded', function() {
+            // 엔터 키로 메뉴바 표시/숨김
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    toggleMenuBar();
+                }
+            });
+
+            // Encryption 텍스트 클릭 시 메뉴바 표시/숨김
+            document.getElementById('encryptionText').addEventListener('click', function() {
+                toggleMenuBar();
+            });
+        });
+
+        // 특정 섹션으로 스크롤
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.log(`Section with id '${sectionId}' not found.`);
+            }
+        }
+    </script>
+
+</body>
+</html>
