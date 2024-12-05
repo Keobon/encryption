@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        header .logo {
+            background-image: url("images/black_logo.png");
+            background-repeat: no-repeat;
+            background-size: contain; 
+            width: 120px;
+            height: 45px;
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 10px 0; /* 글자와 줄 사이 간격 조정 */
+        }
+        nav:before, nav:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px; /* 줄 두께 */
+            background-color: rgb(172, 171, 171); /* 회색 줄 */
+        }
+        nav:before {
+            top: 0; /* 위쪽 줄 */
+        }
+        nav:after {
+            bottom: 0; /* 아래쪽 줄 */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+            gap: 100px;
+            position: relative; /* 글자가 줄 위에 위치하도록 설정 */
+        }
+        nav ul li {
+            margin: 0;
+            color: gray;
+            font-size: 14px;
+            gap: 30px; /* 리스트 아이템 간격을 더 넓게 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            margin-bottom: 40px;
+        }
+        .step h3 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+        .step p {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: block; width: 100%; height: 100%;"></a>
+        </div>
+        <h1>STUDY</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>ASCII</li>
+            <li>CEASER</li>
+            <li>AES</li>
+            <li>DES</li>
+            <li>RSA</li>
+            <li>HASH</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>ASCII : 아스키 코드<br><br><br></h2>
+        <div class="step">
+            <h3>STEP 1</h3><br><br>
+            <p><br>상자와 숫자 자물쇠로 비유: 문자 -> 숫자<br><br>
+                먼저, 문자를 숫자로 변환하는 과정을 상상해 보겠습니다.컴퓨터는 문자를 바로 이해하지 못하기 때문에, 상자에 문자를 넣고 숫자 자물쇠의 비밀번호(ASCII 값)를 붙이는 방식으로 동작합니다.
+                <br><br>예를 들어, <br>
+                'A'라는 문자를 상자에 넣으면, 상자는 65라는 숫자 자물쇠로 잠깁니다.<br>
+                'B'를 넣으면, 66이라는 숫자 자물쇠로 잠깁니다.<br>
+                공백 문자(Space)는 32라는 자물쇠로 잠깁니다.<br><br>
+                즉, 컴퓨터는 상자를 열기 위해 숫자 자물쇠의 비밀번호를 확인하고, 그 숫자를 통해 문자를 이해합니다.<br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 2</h3><br><br>
+            <p><br>숫자 자물쇠로 상자를 열기: 숫자 -> 문자
+                다음으로, 숫자를 다시 문자로 변환하는 과정입니다.<br>컴퓨터가 65라는 숫자를 받으면, 이 숫자 자물쇠를 풀어서 'A'라는 문자를 상자에서 꺼내는 작업을 수행합니다.<br><br>
+                <br><br>예를 들어,<br>
+                숫자 65를 받으면, 컴퓨터는 상자에서 'A'를 꺼냅니다.<br>
+                숫자 66을 받으면, 'B'를 꺼냅니다.<br>
+                숫자 32를 받으면, 공백(Space)을 꺼냅니다.<br><br>
+                즉, 컴퓨터는 숫자 자물쇠를 풀어서 사람에게 이해할 수 있는 문자로 변환합니다.<br><br><br><br><br><br></p>
+        </div>
+    
+</body>
+</html>
