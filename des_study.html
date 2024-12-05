@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        header .logo {
+            background-image: url("C:/Users/user/Desktop/ec.png");
+            background-repeat: no-repeat;
+            background-size: contain; 
+            width: 120px;
+            height: 45px;
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 10px 0; /* 글자와 줄 사이 간격 조정 */
+        }
+        nav:before, nav:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px; /* 줄 두께 */
+            background-color: rgb(172, 171, 171); /* 회색 줄 */
+        }
+        nav:before {
+            top: 0; /* 위쪽 줄 */
+        }
+        nav:after {
+            bottom: 0; /* 아래쪽 줄 */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+            gap: 100px;
+            position: relative; /* 글자가 줄 위에 위치하도록 설정 */
+        }
+        nav ul li {
+            margin: 0;
+            color: gray;
+            font-size: 14px;
+            gap: 30px; /* 리스트 아이템 간격을 더 넓게 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            margin-bottom: 40px;
+        }
+        .step h3 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+        .step p {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+           
+        </div>
+        <h1>STUDY</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="ascll_sutudy.html">ASCII</li></a>
+            <li><a href="study.html">CEASER</li></a>
+            <li><a href="aes_study.html">AES</li></a>
+            <li><a href="des_study.html">DES</li></a>
+            <li><a href="rsa_study.html">RSA</li></a>
+            <li><a href="hash_study.html">HASH</li></a>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>DES : 대칭키 암호화<br><br><br></h2>
+        <div class="step">
+            <h3>STEP 1</h3><br><br>
+            <p><br>DES(Data Encryption Standard, 데이터 암호화 표준)는 1970년대에 IBM이 개발하고, 1977년에 미국 정부 표준으로 채택된 대칭 키 암호화 알고리즘입니다. <br><br>
+                DES는 64비트의 데이터를 블록 단위로 처리하며, 56비트의 비밀 키를 사용하여 암호화와 복호화를 수행합니다.
+                쉽게 설명하자면 DES는 데이터를 상자 안에 넣고, 상자를 16번 잠가서 열기 어렵게 만든다고 생각하시면 됩니다. <br><br>
+                처음에는 단순했던 상자 안의 물건이 여러 번 섞이고 바뀌어 알아보기 힘들어지는 과정을 통해 데이터를 암호화합니다.<br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 2</h3><br><br>
+            <p><br>DES는 한때 다양한 분야에서 널리 사용되었으나, 현재는 보안성이 부족하다는 평가를 받아 일부 제한된 경우에만 사용되고 있습니다. 하지만 과거의 활용 사례를 살펴보겠습니다.
+                <br><br><b>DES가 사용되었던 주요 분야</b><br>
+                - 전자상거래 및 금융 거래<br>
+                DES는 한때 신용카드 결제와 ATM 네트워크 같은 금융 시스템에서 데이터를 보호하는 데 사용되었습니다.
+                특히 EMV(카드 결제 표준)에서도 사용되었으나, 현재는 더 강력한 암호화 알고리즘으로 대체되었습니다.<br>
+                - 네트워크 보안<br>
+                DES는 VPN과 같은 네트워크 보안에서 데이터를 암호화하는 데 사용되었습니다.
+                그러나 DES는 현재 보안 수준이 낮아, 대부분의 시스템이 AES 같은 강력한 알고리즘으로 전환되었습니다.<br>
+                - 무선 통신<br>
+                DES는 초기 무선 통신 프로토콜에서 데이터를 보호하는 데 사용되었습니다.
+                하지만 DES의 취약성 때문에 현재는 WPA2와 같은 프로토콜에서 AES로 대체되었습니다.<br>
+                <br><br><b>오늘날 DES의 사용</b><br>
+                3DES(Triple DES)
+                DES의 취약점을 보완하기 위해 3번 암호화를 적용한 3DES가 도입되었습니다.
+                하지만 AES 도입 이후, 3DES도 사용 빈도가 줄어들고 있습니다.<br>
+                - 레거시 시스템<br>
+                DES는 오래된 시스템과의 호환성을 유지하기 위해 일부 환경에서 사용되지만, 점차 현대적인 암호화 방식으로 대체되고 있습니다.<br>
+                - 암호화 교육<br>
+                DES는 암호화 구조와 블록 암호 개념을 설명하는 데 적합하여 교육 목적으로 사용됩니다.<br>
+                - DES가 더 이상 사용되지 않는 이유<br>
+                DES는 56비트 키를 사용하여 현대 컴퓨터 성능으로는 무차별 대입 공격(Brute Force Attack)에 취약합니다. 이로 인해 DES는 보안 목적으로 더 이상 사용되지 않으며, AES와 같은 강력한 암호화 알고리즘이 이를 대체하였습니다.
+                정리하자면, DES는 과거에 다양한 분야에서 중요한 역할을 했으나, 현재는 보안 취약성으로 인해 주된 암호화 방식으로는 사용되지 않고 있습니다.<br><br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 3</h3><br><br>
+            <p>DES 암호화 과정을 상자와 열쇠로 쉽게 설명해 보겠습니다. 데이터를 상자 안에 넣고, 여러 번 섞고 잠그는 작업을 상상하시면 됩니다.<br><br>
+                <br><br>1. 초기 순열(Permutation) - 상자 안 물건 섞기
+                데이터를 처음으로 한 번 섞는 단계입니다. 상자 안의 물건들의 위치를 처음부터 섞는 것과 같습니다. 예를 들어, 첫 번째 자리에 있던 사과를 마지막 자리로 보내고, 바나나를 두 번째 자리로 옮기는 식으로 순서를 섞습니다.
+                <br><br>2. 16 라운드 암호화 - 상자에 자물쇠 걸기, 물건 바꾸기, 섞기
+                DES는 16번의 라운드를 거쳐 데이터를 암호화합니다. 각 라운드는 세 가지 과정을 포함합니다.
+                <br>(a) AddRoundKey(라운드 키 추가) - 첫 번째 자물쇠 걸기
+                열쇠 K1을 사용해 상자에 첫 번째 자물쇠를 걸어 잠급니다.
+                (b) Substitution(대체) - 상자 안 물건 바꾸기
+                상자 안의 물건을 다른 물건으로 교체합니다. 예를 들어, 사과를 오렌지로, 바나나를 포도로 바꿔 원래 물건을 추측하기 어렵게 만듭니다.
+                (c) Permutation(순열) - 상자 안 물건 순서 바꾸기
+                상자 안 물건의 순서를 섞습니다. 예를 들어, 첫 번째 줄에 있던 오렌지가 마지막으로 가고, 두 번째 줄의 포도가 첫 번째 자리에 오는 식으로 위치를 바꿉니다.
+                이 과정은 16번 반복됩니다. 매번 새로운 자물쇠를 걸고, 물건을 바꾸고, 순서를 섞으면서 상자를 열기 점점 더 어렵게 만듭니다.
+                <br><br>3. 최종 순열(Final Permutation) - 마지막으로 상자 안 물건 섞기
+                마지막으로 한 번 더 상자 안 물건의 위치를 섞어서 암호화를 완료합니다.이제 상자는 16개의 자물쇠가 걸려 있고, 물건도 여러 번 섞여 원래 상태를 알아볼 수 없게 됩니다.
+                이 과정을 통해 암호화된 상자는 열쇠를 가진 사람만이 열 수 있게 되며, 열쇠 없이 상자를 열려 해도 내용을 알아볼 수 없게 됩니다.<br><br><br>
+                이 단계를 여러 번 반복하면서 데이터를 암호화하며, 복호화할 때는 반대로 작업을 수행하면 데이터를 다시 원래대로 돌릴 수 있습니다.<br><br><br><br><br>
+    </div>
+</body>
+</html>

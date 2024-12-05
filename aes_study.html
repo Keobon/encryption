@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        header .logo {
+            background-image: url("images/black_logo.png");
+            background-repeat: no-repeat;
+            background-size: contain; 
+            width: 120px;
+            height: 45px;
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 10px 0; /* 글자와 줄 사이 간격 조정 */
+        }
+        nav:before, nav:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px; /* 줄 두께 */
+            background-color: rgb(172, 171, 171); /* 회색 줄 */
+        }
+        nav:before {
+            top: 0; /* 위쪽 줄 */
+        }
+        nav:after {
+            bottom: 0; /* 아래쪽 줄 */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+            gap: 100px;
+            position: relative; /* 글자가 줄 위에 위치하도록 설정 */
+        }
+        nav ul li {
+            margin: 0;
+            color: gray;
+            font-size: 14px;
+            gap: 30px; /* 리스트 아이템 간격을 더 넓게 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            margin-bottom: 40px;
+        }
+        .step h3 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+        .step p {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+        </div>
+        <h1>STUDY</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="ascll_sutudy.html">ASCII</li></a>
+            <li><a href="study.html">CEASER</li></a>
+            <li><a href="aes_study.html">AES</li></a>
+            <li><a href="des_study.html">DES</li></a>
+            <li><a href="rsa_study.html">RSA</li></a>
+            <li><a href="hash_study.html">HASH</li></a>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>AES : 대칭키 암호화<br><br><br></h2>
+        <div class="step">
+            <h3>STEP 1</h3><br><br>
+            <p><br>AES(Advanced Encryption Standard, 고급 암호화 표준)는 대칭 키 암호화 알고리즘으로, 데이터를 암호화하고 복호화하는 데 사용됩니다. 미국 국립표준기술연구소(NIST)가 2001년에 발표하였으며, 기존의 DES(Data Encryption Standard)를 대체하기 위해 설계되었습니다. <br><br><br><br><br>
+                AES는 일종의 "비밀 상자"라고 생각하면 됩니다. 이 상자는 암호를 걸어놓고 잠그는 상자로, 그 상자를 열려면 딱 하나의 맞는 열쇠가 필요합니다.<br>
+                상자 안에 중요한 메시지나 데이터를 넣고, 그 상자를 AES라는 방식으로 잠급니다. 그러면 그 상자를 받은 사람은 맞는 열쇠(비밀 키)를 알고 있을 때만 상자를 열고 내용을 확인할 수 있습니다. 송신자와 수신자 둘 다 똑같은 열쇠를 사용하여 잠그고 여는 방식이 대칭 키 암호화입니다.<br><br><br>
+                AES가 기존의 DES를 대체하였다는 것은, 마치 오래된 자물쇠가 더 이상 안전하지 않아서 더 튼튼하고 안전한 자물쇠(AES)를 사용하기로 한 것과 같습니다. AES는 이 새로운 자물쇠처럼, 더 안전하고 빠르게 데이터를 보호하는 역할을 합니다.
+                AES는 Rijndael 알고리즘을 기반으로 하고 있으며, 보안성과 효율성을 모두 갖춘 암호화 방식입니다<br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 2</h3><br><br>
+            <p><br>AES는 데이터 보안을 필요로 하는 다양한 분야에서 사용됩니다. 대표적인 사용 사례는 다음과 같습니다:
+                인터넷 통신: HTTPS 프로토콜을 통해 웹사이트와 사용자 간의 안전한 통신을 보장합니다.
+                파일 암호화: 중요한 파일이나 데이터를 안전하게 보관하기 위해 사용됩니다.
+                무선 통신: Wi-Fi 네트워크에서 WPA2와 같은 보안 프로토콜에서 사용됩니다.
+                금융 거래: 온라인 뱅킹, 카드 결제 등에서 AES로 데이터를 암호화하여 안전한 거래를 보장합니다.<br><br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 3</h3><br><br>
+            <p>AES 암호화 과정은 여러 단계로 이루어져 있으며, 이를 열쇠와 상자로 비유해서 쉽게 설명하겠습니다. AES는 기본적으로 SubBytes, ShiftRows, MixColumns, AddRoundKey의 4단계를 거쳐 데이터를 암호화합니다. 각 단계를 열쇠와 상자의 이야기로 풀어보겠습니다.<br><br>
+                  1. SubBytes(서브 바이트 변환): 상자 안 물건 바꾸기데이터를 바이트 단위로 S-Box라는 표를 이용해 바꿉니다. 데이터를 복잡하게 섞어주는 작업입니다. 상자 안에 있던 물건들을 일단 꺼내서, 다른 상자 안에 있던 비슷하지만 전혀 다른 물건으로 바꿔 넣는 것입니다. 예를 들어, 사과 대신 배로 교체하는 것처럼 생각할 수 있습니다.<br><br><br>
+                  2. ShiftRows(행 시프트 변환): 상자 안 물건 위치 옮기기데이터를 한 줄씩 옆으로 이동시키는 단계입니다. 각 줄마다 다른 양만큼 옮겨서 데이터를 더 섞습니다. 즉, 상자 안에 배치된 물건들을 옆으로 살짝씩 밀어내는 것입니다. 예를 들어, 첫 번째 줄에 있던 물건은 한 칸, 두 번째 줄은 두 칸씩 옮기는 방식으로 내용물의 순서를 헷갈리게 만듭니다.<br><br><br>
+                  3. MixColumns(열 혼합 변환): 물건을 여러 번 섞기각 열에 있는 데이터를 수학적으로 다시 섞습니다. 이 단계는 보안 강도를 더 높이는 역할을 합니다. 즉, 상자 안에 있는 물건들을 여러 번 복잡하게 섞는 것입니다. 이 과정에서는 물건들끼리 서로 섞여서 무엇이 어디 있었는지 더 헷갈리게 만듭니다. 단, 마지막 라운드에서는 이 과정을 건너뛰게 됩니다.<br><br><br>
+                  4. AddRoundKey(라운드 키 추가): 상자 잠그기미리 준비된 키(열쇠)를 사용하여 현재 상태와 XOR 연산을 통해 결합하는 단계입니다. 상자에 새로운 자물쇠를 걸고, 그 자물쇠를 여는 열쇠를 준비하는 것입니다. 이 열쇠는 암호화 과정의 마지막에서 중요한 역할을 합니다.<br><br><br>
+                이 단계를 여러 번 반복하면서 데이터를 암호화하며, 복호화할 때는 반대로 작업을 수행하면 데이터를 다시 원래대로 돌릴 수 있습니다.<br><br><br><br><br>
+    </div>
+</body>
+</html>

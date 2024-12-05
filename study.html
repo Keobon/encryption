@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        header .logo {
+            background-image: url("C:/Users/user/Desktop/ec.png");
+            background-repeat: no-repeat;
+            background-size: contain; 
+            width: 120px;
+            height: 45px;
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 10px 0; /* 글자와 줄 사이 간격 조정 */
+        }
+        nav:before, nav:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px; /* 줄 두께 */
+            background-color: rgb(172, 171, 171); /* 회색 줄 */
+        }
+        nav:before {
+            top: 0; /* 위쪽 줄 */
+        }
+        nav:after {
+            bottom: 0; /* 아래쪽 줄 */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+            gap: 100px;
+            position: relative; /* 글자가 줄 위에 위치하도록 설정 */
+        }
+        nav ul li {
+            margin: 0;
+            color: gray;
+            font-size: 14px;
+            gap: 30px; /* 리스트 아이템 간격을 더 넓게 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            margin-bottom: 40px;
+        }
+        .step h3 {
+            color: blue;
+            margin-bottom: 10px;
+        }
+        .step p {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            
+        </div>
+        <h1>STUDY</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="ascll_sutudy.html">ASCLL</a></li>
+            <li>CEASER</li>
+            <li><a href="aes_study.html">AES</a></li>
+            <li><a href="des_study.html">DES</a></li>
+            <li><a href="rsa_study.html">RSA</li></a>
+            <li><a href="hash_study.html">HASH</li></a>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>CEASER: 시저 암호<br><br><br></h2>
+        <div class="step">
+            <h3>STEP 1</h3><br><br>
+            <p><br>시저 암호(Caesar Cipher)는 매우 간단한 암호화 방식이다. 이 방법은 로마의 줄리어스 시저가 사용했다고 해서 붙여진 이름을 가지고 있다. 시저 암호는 알파벳을 일정한 숫자만큼 이동시켜 암호화하는 방식이다. 이 방식은 해커가 쉽게 접근하기 때문에, 그만큼 매우 취약하여 현대의 보안 목적에는 거의 사용되지 않는다. 그러나 암호화의 기본 개념을 이해하는 데 매우 유용하다.<br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 2</h3><br><br>
+            <p><br>시저 암호는 현재 실제 보안 목적에는 사용되지 않는다. 이는 암호화 방식이 매우 단순해서 쉽게 해독될 수 있기 때문이다. 그러나 여전히 교육적 목적으로 특정 상황에서 재미로 사용될 수 있다.<br><br><br><br><br><br></p>
+        </div>
+        <div class="step">
+            <h3>STEP 3</h3><br><br>
+            <p><br>시저 암호는 매우 간단한 방식이다. 예를 들어, "ABC"라는 데이터를 키 값 '3'으로 암호화한다고 할 때, 각 문자를 3칸씩 밀어서 'D', 'E', 'F'로 변환하는 것이다.<br><br><br><br><br></p>
+            <p><strong>EX)</strong> 키 값 3, 원문: "HELLO"</p>
+            <table>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>H</td>
+                    <td>I</td>
+                    <td>J</td>
+                    <td>K</td>
+                    <td>L</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>N</td>
+                    <td>O</td>
+                    <td>P</td>
+                    <td>Q</td>
+                    <td>R</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>T</td>
+                    <td>U</td>
+                    <td>V</td>
+                    <td>W</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>Y</td>
+                    <td>Z</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>H → K<br>E → H<br>L → O<br>L → O<br>O → R<br><br><br>따라서 "HELLO"는 "KHOOR"로 암호화된다.<br><br><br><br><br></p>
+        </div>
+    </div>
+</body>
+</html>
